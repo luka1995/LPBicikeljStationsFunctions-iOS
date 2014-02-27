@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>928FD961-463A-49AA-BC81-6610E475ADAA</string>
+	<key>IDESourceControlProjectName</key>
+	<string>LPBicikeLJExample</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>36B3CDE0-CD99-4C96-B519-1283F0FF2F19</key>
+		<string>ssh://github.com/luka1995/LPBicikeljStationsFunctions.git</string>
+		<key>D076EE05-74EA-4BD2-B9F6-06DDAA978C6D</key>
+		<string>https://github.com/AFNetworking/AFNetworking</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Examples/LPBicikeLJExample/LPBicikeLJExample.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>36B3CDE0-CD99-4C96-B519-1283F0FF2F19</key>
+		<string>../../../..</string>
+		<key>D076EE05-74EA-4BD2-B9F6-06DDAA978C6D</key>
+		<string>../../../../Dependencies</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/luka1995/LPBicikeljStationsFunctions.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>36B3CDE0-CD99-4C96-B519-1283F0FF2F19</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D076EE05-74EA-4BD2-B9F6-06DDAA978C6D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Dependencies</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>36B3CDE0-CD99-4C96-B519-1283F0FF2F19</string>
+			<key>IDESourceControlWCCName</key>
+			<string>LPBicikeljStationsFunctions</string>
+		</dict>
+	</array>
+</dict>
+</plist>
