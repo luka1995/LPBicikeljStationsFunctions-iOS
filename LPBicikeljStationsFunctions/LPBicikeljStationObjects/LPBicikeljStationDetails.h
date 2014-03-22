@@ -1,12 +1,12 @@
 //
-//  LPGoogleFunctions.h
+//  LPBicikeljStationDetails.h
 //
 //  Created by Luka Penger on 7/3/13.
 //  Copyright (c) 2013 Luka Penger. All rights reserved.
 //
 
 // This code is distributed under the terms and conditions of the MIT license.
-
+//
 // Copyright (c) 2013 Luka Penger
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,10 +30,10 @@
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
 
+
 @protocol LPBicikeljStationDetailsDelegate;
 
-@interface LPBicikeljStationDetails : NSObject <NSCoding,NSXMLParserDelegate>
-{
+@interface LPBicikeljStationDetails : NSObject <NSCoding,NSXMLParserDelegate> {
     int waitingCharacters;
 }
 
@@ -59,6 +59,7 @@
 @end;
 
 #pragma mark - Delegate Protocol
+
 @protocol LPBicikeljStationDetailsDelegate<NSObject>
 
 @optional

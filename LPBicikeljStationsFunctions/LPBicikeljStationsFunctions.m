@@ -1,12 +1,12 @@
 //
-//  LPGoogleFunctions.h
+//  LPBicikeljStationsFunctions.m
 //
 //  Created by Luka Penger on 7/3/13.
 //  Copyright (c) 2013 Luka Penger. All rights reserved.
 //
 
 // This code is distributed under the terms and conditions of the MIT license.
-
+//
 // Copyright (c) 2013 Luka Penger
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,18 +29,19 @@
 
 #import "LPBicikeljStationsFunctions.h"
 
-@implementation LPBicikeljStationsFunctions
 
 NSString *const bicikeljServiceStationsURL = @"http://www.bicikelj.si/service/carto";
 
 NSString *const savedStationsListUserDefaultsKey = @"savedStationsList";
 NSString *const savedArrondissementsListUserDefaultsKey = @"savedArrondissementsList";
 
+@implementation LPBicikeljStationsFunctions
+
 #pragma mark - Lifecycle
 
-- (id)init {
-    if (self = [super init])
-    {
+- (id)init
+{
+    if (self = [super init]) {
         if(!self.stationsList)
             self.stationsList = [NSMutableArray new];
         
@@ -54,8 +55,7 @@ NSString *const savedArrondissementsListUserDefaultsKey = @"savedArrondissements
 
 - (void)loadStations
 {
-    if ([self.delegate respondsToSelector:@selector(bicikeljStationsFunctionsWillLoadStations:)])
-    {
+    if ([self.delegate respondsToSelector:@selector(bicikeljStationsFunctionsWillLoadStations:)]) {
         [self.delegate bicikeljStationsFunctionsWillLoadStations:self];
     }
     
@@ -69,16 +69,14 @@ NSString *const savedArrondissementsListUserDefaultsKey = @"savedArrondissements
 
 - (void)loadStationsDetails
 {
-    if ([self.delegate respondsToSelector:@selector(bicikeljStationsFunctionsWillLoadStationsDetails:)])
-    {
+    if ([self.delegate respondsToSelector:@selector(bicikeljStationsFunctionsWillLoadStationsDetails:)]) {
         [self.delegate bicikeljStationsFunctionsWillLoadStationsDetails:self];
     }
     
     loadingStationsDetails=0;
     loadingStationsDetailsCount=self.stationsList.count;
     
-    for(int i=0;i<self.stationsList.count;i++)
-    {
+    for(int i=0; i<self.stationsList.count; i++) {
         LPBicikeljStationMarker *stationMarker = (LPBicikeljStationMarker*)[self.stationsList objectAtIndex:i];
         
         if(!stationMarker.stationDetails)
@@ -94,13 +92,11 @@ NSString *const savedArrondissementsListUserDefaultsKey = @"savedArrondissements
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
-    if([userDefaults objectForKey:savedStationsListUserDefaultsKey]!=nil)
-    {
+    if([userDefaults objectForKey:savedStationsListUserDefaultsKey] != nil) {
         self.stationsList = [[NSKeyedUnarchiver unarchiveObjectWithData:[userDefaults objectForKey:savedStationsListUserDefaultsKey]] mutableCopy];
     }
     
-    if([userDefaults objectForKey:savedArrondissementsListUserDefaultsKey]!=nil)
-    {
+    if([userDefaults objectForKey:savedArrondissementsListUserDefaultsKey] != nil) {
         self.arrondissementsList = [[NSKeyedUnarchiver unarchiveObjectWithData:[userDefaults objectForKey:savedArrondissementsListUserDefaultsKey]] mutableCopy];
     }
 }
@@ -129,10 +125,8 @@ NSString *const savedArrondissementsListUserDefaultsKey = @"savedArrondissements
 {
     loadingStationsDetails++;
     
-    if(loadingStationsDetails>=loadingStationsDetailsCount)
-    {
-        if ([self.delegate respondsToSelector:@selector(bicikeljStationsFunctions:didLoadStationsDetails:)])
-        {
+    if(loadingStationsDetails>=loadingStationsDetailsCount) {
+        if ([self.delegate respondsToSelector:@selector(bicikeljStationsFunctions:didLoadStationsDetails:)]) {
             [self.delegate bicikeljStationsFunctions:self didLoadStationsDetails:self.stationsList];
         }
     }
@@ -156,8 +150,7 @@ NSString *const savedArrondissementsListUserDefaultsKey = @"savedArrondissements
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser
 {
-    if ([self.delegate respondsToSelector:@selector(bicikeljStationsFunctions:didLoadStations:)])
-    {
+    if ([self.delegate respondsToSelector:@selector(bicikeljStationsFunctions:didLoadStations:)]) {
         [self.delegate bicikeljStationsFunctions:self didLoadStations:self.stationsList];
     }
     
@@ -168,14 +161,11 @@ NSString *const savedArrondissementsListUserDefaultsKey = @"savedArrondissements
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
 {
-    if([elementName isEqualToString:@"marker"])
-    {
+    if([elementName isEqualToString:@"marker"]) {
         LPBicikeljStationMarker *stationMarker = [LPBicikeljStationMarker stationMarkerWithObjects:attributeDict];
 
         [self.stationsList addObject:stationMarker];
-    }
-    else if([elementName isEqualToString:@"arrondissement"])
-    {
+    } else if([elementName isEqualToString:@"arrondissement"]) {
         LPBicikeljArrondissement *arrondissement = [LPBicikeljArrondissement arrondissementWithObjects:attributeDict];
 
         [self.arrondissementsList addObject:arrondissement];
@@ -184,7 +174,9 @@ NSString *const savedArrondissementsListUserDefaultsKey = @"savedArrondissements
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError
 {
-    //NSLog(@"Parser error");
+    if ([self.delegate respondsToSelector:@selector(bicikeljStationsFunctions:errorLoadingStations:)]) {
+        [self.delegate bicikeljStationsFunctions:self errorLoadingStations:parseError];
+    }
 }
 
 - (LPBicikeljStationMarker*)nearestStationForStartLocation:(CLLocationCoordinate2D)location {

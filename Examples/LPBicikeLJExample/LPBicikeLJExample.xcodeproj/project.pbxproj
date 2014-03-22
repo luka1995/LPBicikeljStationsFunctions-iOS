@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C06AE1B18DDB98E009E5987 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C06AE1A18DDB98E009E5987 /* MapKit.framework */; };
+		0C06AE2118DDBD30009E5987 /* LPAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C06AE1E18DDBD30009E5987 /* LPAnnotation.m */; };
+		0C06AE2218DDBD30009E5987 /* LPAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C06AE2018DDBD30009E5987 /* LPAnnotationView.m */; };
 		0C794C0718BFA48F00C88FD4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C794C0618BFA48F00C88FD4 /* Foundation.framework */; };
 		0C794C0918BFA48F00C88FD4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C794C0818BFA48F00C88FD4 /* CoreGraphics.framework */; };
 		0C794C0B18BFA48F00C88FD4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C794C0A18BFA48F00C88FD4 /* UIKit.framework */; };
@@ -46,6 +49,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C06AE1A18DDB98E009E5987 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		0C06AE1D18DDBD30009E5987 /* LPAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPAnnotation.h; sourceTree = "<group>"; };
+		0C06AE1E18DDBD30009E5987 /* LPAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPAnnotation.m; sourceTree = "<group>"; };
+		0C06AE1F18DDBD30009E5987 /* LPAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPAnnotationView.h; sourceTree = "<group>"; };
+		0C06AE2018DDBD30009E5987 /* LPAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPAnnotationView.m; sourceTree = "<group>"; };
 		0C794C0318BFA48F00C88FD4 /* LPBicikeLJExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LPBicikeLJExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C794C0618BFA48F00C88FD4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0C794C0818BFA48F00C88FD4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -97,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C06AE1B18DDB98E009E5987 /* MapKit.framework in Frameworks */,
 				0C794D3D18BFA80B00C88FD4 /* SystemConfiguration.framework in Frameworks */,
 				0C794C0918BFA48F00C88FD4 /* CoreGraphics.framework in Frameworks */,
 				0C794C0B18BFA48F00C88FD4 /* UIKit.framework in Frameworks */,
@@ -117,6 +126,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C06AE1C18DDBD30009E5987 /* LPAnnotation */ = {
+			isa = PBXGroup;
+			children = (
+				0C06AE1D18DDBD30009E5987 /* LPAnnotation.h */,
+				0C06AE1E18DDBD30009E5987 /* LPAnnotation.m */,
+				0C06AE1F18DDBD30009E5987 /* LPAnnotationView.h */,
+				0C06AE2018DDBD30009E5987 /* LPAnnotationView.m */,
+			);
+			path = LPAnnotation;
+			sourceTree = "<group>";
+		};
 		0C794BFA18BFA48F00C88FD4 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +159,7 @@
 		0C794C0518BFA48F00C88FD4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0C06AE1A18DDB98E009E5987 /* MapKit.framework */,
 				0C794D3C18BFA80B00C88FD4 /* SystemConfiguration.framework */,
 				0C794C0618BFA48F00C88FD4 /* Foundation.framework */,
 				0C794C0818BFA48F00C88FD4 /* CoreGraphics.framework */,
@@ -151,6 +172,7 @@
 		0C794C0C18BFA48F00C88FD4 /* LPBicikeLJExample */ = {
 			isa = PBXGroup;
 			children = (
+				0C06AE1C18DDBD30009E5987 /* LPAnnotation */,
 				0C794D3E18BFA83F00C88FD4 /* LPBicikeljStationsFunctions */,
 				0C794C3518BFA4D000C88FD4 /* LPMainViewController.h */,
 				0C794C3618BFA4D000C88FD4 /* LPMainViewController.m */,
@@ -270,7 +292,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = LP;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Luka Penger";
 				TargetAttributes = {
 					0C794C0218BFA48F00C88FD4 = {
@@ -324,6 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C06AE2118DDBD30009E5987 /* LPAnnotation.m in Sources */,
 				0C794D3918BFA7E300C88FD4 /* AFURLConnectionOperation.m in Sources */,
 				0C794D3A18BFA7E300C88FD4 /* AFXMLRequestOperation.m in Sources */,
 				0C794D4A18BFA83F00C88FD4 /* LPBicikeljStationMarker.m in Sources */,
@@ -338,6 +361,7 @@
 				0C794D3B18BFA7E300C88FD4 /* UIImageView+AFNetworking.m in Sources */,
 				0C794C1318BFA48F00C88FD4 /* main.m in Sources */,
 				0C794D3318BFA7E300C88FD4 /* AFHTTPClient.m in Sources */,
+				0C06AE2218DDBD30009E5987 /* LPAnnotationView.m in Sources */,
 				0C794D3818BFA7E300C88FD4 /* AFPropertyListRequestOperation.m in Sources */,
 				0C794D4B18BFA83F00C88FD4 /* LPBicikeljStationsFunctions.m in Sources */,
 			);
@@ -376,7 +400,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -415,7 +438,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -475,7 +497,6 @@
 		0C794C3318BFA48F00C88FD4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LPBicikeLJExample.app/LPBicikeLJExample";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -498,7 +519,6 @@
 		0C794C3418BFA48F00C88FD4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LPBicikeLJExample.app/LPBicikeLJExample";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -533,6 +553,7 @@
 				0C794C3118BFA48F00C88FD4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0C794C3218BFA48F00C88FD4 /* Build configuration list for PBXNativeTarget "LPBicikeLJExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -541,6 +562,7 @@
 				0C794C3418BFA48F00C88FD4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

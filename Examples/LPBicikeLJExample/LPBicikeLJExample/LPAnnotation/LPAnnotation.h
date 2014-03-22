@@ -1,13 +1,14 @@
 //
-//  LPBicikeljStationMarker.h
+//  LPAnnotation.h
+//  LPBicikeLJExample
 //
-//  Created by Luka Penger on 7/3/13.
-//  Copyright (c) 2013 Luka Penger. All rights reserved.
+//  Created by Luka Penger on 19/03/14.
+//  Copyright (c) 2014 Luka Penger. All rights reserved.
 //
 
 // This code is distributed under the terms and conditions of the MIT license.
 //
-// Copyright (c) 2013 Luka Penger
+// Copyright (c) 2014 Luka Penger
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -28,25 +29,18 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-#import "LPBicikeljStationDetails.h"
+#import <MapKit/MapKit.h>
+#import "LPBicikeljStationMarker.h"
 
 
-@interface LPBicikeljStationMarker : NSObject <NSCoding>
+@interface LPAnnotation : NSObject <MKAnnotation>
 
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, assign) int number;
-@property (nonatomic, strong) NSString *address;
-@property (nonatomic, strong) NSString *fullAddress;
-@property (nonatomic, assign) double latitude;
-@property (nonatomic, assign) double longitude;
-@property (nonatomic, assign) int open;
-@property (nonatomic, assign) int bonus;
-@property (nonatomic, strong) LPBicikeljStationDetails *stationDetails;
+@property (nonatomic, strong) LPBicikeljStationMarker *stationMarker;
+@property (nonatomic, assign) CLLocationCoordinate2D coordinate;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *subtitle;
 
-+ (id)stationMarkerWithObjects:(NSDictionary*)dictionary;
-
-- (NSDictionary*)dictionary;
-
-- (id)copyWithZone:(NSZone *)zone;
+- (id)initWithStationMarker:(LPBicikeljStationMarker *)stationMarker;
++ (id)annotationWithStationMarker:(LPBicikeljStationMarker *)stationMarker;
 
 @end

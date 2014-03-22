@@ -1,12 +1,12 @@
 //
-//  LPGoogleFunctions.h
+//  LPBicikeljArrondissement.m
 //
 //  Created by Luka Penger on 7/3/13.
 //  Copyright (c) 2013 Luka Penger. All rights reserved.
 //
 
 // This code is distributed under the terms and conditions of the MIT license.
-
+//
 // Copyright (c) 2013 Luka Penger
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,6 +29,7 @@
 
 #import "LPBicikeljArrondissement.h"
 
+
 @implementation LPBicikeljArrondissement
 
 #pragma mark - Coder
@@ -36,8 +37,7 @@
 - (id)initWithCoder:(NSCoder *)coder
 {
 	self = [LPBicikeljArrondissement new];
-    if (self != nil)
-	{
+    if (self != nil) {
         self.number = [coder decodeIntegerForKey:@"number"];
         self.minLatitude = [coder decodeDoubleForKey:@"minLatitude"];
         self.minLongitude = [coder decodeDoubleForKey:@"minLongitude"];
@@ -63,8 +63,7 @@
 {
     LPBicikeljArrondissement *new = [LPBicikeljArrondissement new];
 
-    if(![dictionary isKindOfClass:[NSNull class]])
-    {
+    if(![dictionary isKindOfClass:[NSNull class]]) {
         if (![[dictionary objectForKey:@"number"] isKindOfClass:[NSNull class]] && [dictionary objectForKey:@"number"] != nil) {
             new.number = [[dictionary objectForKey:@"number"] intValue];
         }
@@ -92,11 +91,13 @@
 - (id)copyWithZone:(NSZone *)zone
 {
     LPBicikeljArrondissement *new = [LPBicikeljArrondissement new];
+    
     [new setNumber:[self number]];
     [new setMinLatitude:[self minLatitude]];
     [new setMinLongitude:[self minLongitude]];
     [new setMaxLatitude:[self maxLatitude]];
     [new setMaxLongitude:[self maxLongitude]];
+    
     return new;
 }
 

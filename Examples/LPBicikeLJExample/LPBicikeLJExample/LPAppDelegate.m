@@ -15,7 +15,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     LPMainViewController *mainViewController = [[LPMainViewController alloc] initWithNibName:@"LPMainViewController" bundle:nil];
-    self.window.rootViewController = mainViewController;
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
+    navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(0.0/255.0) green:(230.0/255.0) blue:(130.0/255.0) alpha:1.0];
+
+    self.window.rootViewController = navigationController;
     
     [self.window makeKeyAndVisible];
     

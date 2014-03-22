@@ -1,12 +1,12 @@
 //
-//  LPGoogleFunctions.h
+//  LPBicikeljStationMarker.m
 //
 //  Created by Luka Penger on 7/3/13.
 //  Copyright (c) 2013 Luka Penger. All rights reserved.
 //
 
 // This code is distributed under the terms and conditions of the MIT license.
-
+//
 // Copyright (c) 2013 Luka Penger
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,6 +29,7 @@
 
 #import "LPBicikeljStationMarker.h"
 
+
 @implementation LPBicikeljStationMarker
 
 #pragma mark - Coder
@@ -36,8 +37,7 @@
 - (id)initWithCoder:(NSCoder *)coder
 {
 	self = [LPBicikeljStationMarker new];
-    if (self != nil)
-	{
+    if (self != nil) {
         self.name = [coder decodeObjectForKey:@"name"];
         self.number = [coder decodeIntegerForKey:@"number"];
         self.address = [coder decodeObjectForKey:@"address"];
@@ -71,8 +71,7 @@
 {
     LPBicikeljStationMarker *new = [LPBicikeljStationMarker new];
     
-    if(![dictionary isKindOfClass:[NSNull class]])
-    {
+    if(![dictionary isKindOfClass:[NSNull class]]) {
         if (![[dictionary objectForKey:@"name"] isKindOfClass:[NSNull class]] && [dictionary objectForKey:@"name"] != nil) {
             new.name = [dictionary objectForKey:@"name"];
         }
@@ -116,6 +115,7 @@
 - (id)copyWithZone:(NSZone *)zone
 {
     LPBicikeljStationMarker *new = [LPBicikeljStationMarker new];
+    
     [new setName:[self name]];
     [new setNumber:[self number]];
     [new setAddress:[self address]];
@@ -125,6 +125,7 @@
     [new setOpen:[self open]];
     [new setBonus:[self bonus]];
     [new setStationDetails:[self stationDetails]];
+    
     return new;
 }
 
@@ -136,8 +137,7 @@
  
     NSMutableDictionary *mutableDictionary = [[NSMutableDictionary alloc] initWithDictionary:dictionary];
     
-    if(self.stationDetails!=nil && ![self.stationDetails isKindOfClass:[NSNull class]])
-    {
+    if(self.stationDetails!=nil && ![self.stationDetails isKindOfClass:[NSNull class]]) {
         [mutableDictionary setObject:self.stationDetails.dictionary forKey:@"stationDetails"];
     }
     

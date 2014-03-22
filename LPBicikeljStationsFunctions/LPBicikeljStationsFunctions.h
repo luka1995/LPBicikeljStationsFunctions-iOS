@@ -1,12 +1,12 @@
 //
-//  LPGoogleFunctions.h
+//  LPBicikeljStationsFunctions.h
 //
 //  Created by Luka Penger on 7/3/13.
 //  Copyright (c) 2013 Luka Penger. All rights reserved.
 //
 
 // This code is distributed under the terms and conditions of the MIT license.
-
+//
 // Copyright (c) 2013 Luka Penger
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -36,8 +36,7 @@
 
 @protocol LPBicikeljStationsFunctionsDelegate;
 
-@interface LPBicikeljStationsFunctions : NSObject <NSXMLParserDelegate, LPBicikeljStationDetailsDelegate>
-{
+@interface LPBicikeljStationsFunctions : NSObject <NSXMLParserDelegate, LPBicikeljStationDetailsDelegate> {
     int loadingStationsDetails;
     int loadingStationsDetailsCount;
 }
@@ -50,8 +49,8 @@
 - (void)loadStationsDetails;
 - (void)loadSavedStations;
 - (void)saveStations;
-- (LPBicikeljStationMarker*)nearestStationForStartLocation:(CLLocationCoordinate2D)location;
-- (LPBicikeljStationMarker*)nearestStationForEndLocation:(CLLocationCoordinate2D)location;
+- (LPBicikeljStationMarker *)nearestStationForStartLocation:(CLLocationCoordinate2D)location;
+- (LPBicikeljStationMarker *)nearestStationForEndLocation:(CLLocationCoordinate2D)location;
 
 @end
 
@@ -62,7 +61,8 @@
 @optional
 
 - (void)bicikeljStationsFunctionsWillLoadStations:(LPBicikeljStationsFunctions *)bicikeljStationsFunctions;
-- (void)bicikeljStationsFunctions:(LPBicikeljStationsFunctions *)bicikeljStationsFunctions didLoadStations:(NSMutableArray*)stationsList;
+- (void)bicikeljStationsFunctions:(LPBicikeljStationsFunctions *)bicikeljStationsFunctions didLoadStations:(NSMutableArray *)stationsList;
+- (void)bicikeljStationsFunctions:(LPBicikeljStationsFunctions *)bicikeljStationsFunctions errorLoadingStations:(NSError *)error;
 - (void)bicikeljStationsFunctionsWillLoadStationsDetails:(LPBicikeljStationsFunctions *)bicikeljStationsFunctions;
 - (void)bicikeljStationsFunctions:(LPBicikeljStationsFunctions *)bicikeljStationsFunctions didLoadStationsDetails:(NSMutableArray*)stationsList;
 

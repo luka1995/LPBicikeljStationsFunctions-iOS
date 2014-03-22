@@ -1,12 +1,12 @@
 //
-//  LPGoogleFunctions.h
+//  LPBicikeljStationDetails.m
 //
 //  Created by Luka Penger on 7/3/13.
 //  Copyright (c) 2013 Luka Penger. All rights reserved.
 //
 
 // This code is distributed under the terms and conditions of the MIT license.
-
+//
 // Copyright (c) 2013 Luka Penger
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,6 +29,7 @@
 
 #import "LPBicikeljStationDetails.h"
 
+
 @implementation LPBicikeljStationDetails
 
 NSString *const bicikeljServiceStationDetailsURL = @"http://www.bicikelj.si/service/stationdetails/ljubljana/%d";
@@ -38,8 +39,7 @@ NSString *const bicikeljServiceStationDetailsURL = @"http://www.bicikelj.si/serv
 - (id)initWithCoder:(NSCoder *)coder
 {
 	self = [LPBicikeljStationDetails new];
-    if (self != nil)
-	{
+    if (self != nil) {
         self.available = [coder decodeIntegerForKey:@"available"];
         self.free = [coder decodeIntegerForKey:@"free"];
         self.total = [coder decodeIntegerForKey:@"total"];
@@ -69,8 +69,7 @@ NSString *const bicikeljServiceStationDetailsURL = @"http://www.bicikelj.si/serv
 {
     LPBicikeljStationDetails *new = [LPBicikeljStationDetails new];
     
-    if(![dictionary isKindOfClass:[NSNull class]])
-    {
+    if(![dictionary isKindOfClass:[NSNull class]]) {
         if (![[dictionary objectForKey:@"available"] isKindOfClass:[NSNull class]] && [dictionary objectForKey:@"available"] != nil) {
             new.available = [[dictionary objectForKey:@"available"] intValue];
         }
@@ -143,8 +142,7 @@ NSString *const bicikeljServiceStationDetailsURL = @"http://www.bicikelj.si/serv
 
 - (void)loadStationDetailsForNumber:(int)number
 {
-    if ([self.delegate respondsToSelector:@selector(bicikeljStationDetailsWillLoadDetails:)])
-    {
+    if ([self.delegate respondsToSelector:@selector(bicikeljStationDetailsWillLoadDetails:)]) {
         [self.delegate bicikeljStationDetailsWillLoadDetails:self];
     }
     
@@ -162,54 +160,34 @@ NSString *const bicikeljServiceStationDetailsURL = @"http://www.bicikelj.si/serv
 - (void)parserDidStartDocument:(NSXMLParser *)parser
 {
     waitingCharacters=0;
-    
-    //NSLog(@"Parser start");
 }
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser
 {
     waitingCharacters=0;
     
-    if ([self.delegate respondsToSelector:@selector(bicikeljStationDetailsDidLoadDetails:)])
-    {
+    if ([self.delegate respondsToSelector:@selector(bicikeljStationDetailsDidLoadDetails:)]) {
         [self.delegate bicikeljStationDetailsDidLoadDetails:self];
     }
-    
-    //NSLog(@"%@",self.description);
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
 {
-    if([elementName isEqualToString:@"available"])
-    {
+    if([elementName isEqualToString:@"available"]) {
         waitingCharacters=1;
-    }
-    else if([elementName isEqualToString:@"free"])
-    {
+    } else if([elementName isEqualToString:@"free"]) {
         waitingCharacters=2;
-    }
-    else if([elementName isEqualToString:@"total"])
-    {
+    } else if([elementName isEqualToString:@"total"]) {
         waitingCharacters=3;
-    }
-    else if([elementName isEqualToString:@"ticket"])
-    {
+    } else if([elementName isEqualToString:@"ticket"]) {
         waitingCharacters=4;
-    }
-    else if([elementName isEqualToString:@"open"])
-    {
+    } else if([elementName isEqualToString:@"open"]) {
         waitingCharacters=5;
-    }
-    else if([elementName isEqualToString:@"updated"])
-    {
+    } else if([elementName isEqualToString:@"updated"]) {
         waitingCharacters=6;
-    }
-    else if([elementName isEqualToString:@"connected"])
-    {
+    } else if([elementName isEqualToString:@"connected"]) {
         waitingCharacters=7;
-    }
-    else
-    {
+    } else {
         waitingCharacters=0;
     }
 }
@@ -251,8 +229,6 @@ NSString *const bicikeljServiceStationDetailsURL = @"http://www.bicikelj.si/serv
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError
 {
     waitingCharacters=0;
-    
-    //NSLog(@"Parser error");
 }
 
 @end

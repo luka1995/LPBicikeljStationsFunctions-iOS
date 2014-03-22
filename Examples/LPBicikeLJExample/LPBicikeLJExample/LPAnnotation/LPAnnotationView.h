@@ -1,13 +1,14 @@
 //
-//  LPBicikeljStationMarker.h
+//  LPAnnotationView.h
+//  LPBicikeLJExample
 //
-//  Created by Luka Penger on 7/3/13.
-//  Copyright (c) 2013 Luka Penger. All rights reserved.
+//  Created by Luka Penger on 19/03/14.
+//  Copyright (c) 2014 Luka Penger. All rights reserved.
 //
 
 // This code is distributed under the terms and conditions of the MIT license.
 //
-// Copyright (c) 2013 Luka Penger
+// Copyright (c) 2014 Luka Penger
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -27,26 +28,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
-#import "LPBicikeljStationDetails.h"
+#import <MapKit/MapKit.h>
 
 
-@interface LPBicikeljStationMarker : NSObject <NSCoding>
+@interface LPAnnotationView : MKAnnotationView
 
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, assign) int number;
-@property (nonatomic, strong) NSString *address;
-@property (nonatomic, strong) NSString *fullAddress;
-@property (nonatomic, assign) double latitude;
-@property (nonatomic, assign) double longitude;
-@property (nonatomic, assign) int open;
-@property (nonatomic, assign) int bonus;
-@property (nonatomic, strong) LPBicikeljStationDetails *stationDetails;
-
-+ (id)stationMarkerWithObjects:(NSDictionary*)dictionary;
-
-- (NSDictionary*)dictionary;
-
-- (id)copyWithZone:(NSZone *)zone;
+@property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) UILabel *topLabel;
+@property (nonatomic, strong) UILabel *bottomLabel;
 
 @end
