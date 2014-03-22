@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "LPBicikeljStationsFunctions"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "LPBicikeljStationsFunctions is an iOS library that provides easy access to BicikeLJ."
   s.description  = <<-DESC
                     LPBicikeljStationsFunctions is an iOS library that provides easy access to BicikeLJ.

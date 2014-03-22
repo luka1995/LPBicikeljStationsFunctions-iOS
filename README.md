@@ -30,6 +30,46 @@ To set a compiler flag in Xcode, go to your active target and select the "Build 
 LPBicikeljStationsFunctions uses AFNetworking library for networking.
 https://github.com/AFNetworking/AFNetworking
 
+
+####Delegate methods
+
+```objective-c
+- (void)bicikeljStationsFunctionsWillLoadStations:(LPBicikeljStationsFunctions *)bicikeljStationsFunctions;
+- (void)bicikeljStationsFunctions:(LPBicikeljStationsFunctions *)bicikeljStationsFunctions didLoadStations:(NSMutableArray *)stationsList;
+- (void)bicikeljStationsFunctions:(LPBicikeljStationsFunctions *)bicikeljStationsFunctions errorLoadingStations:(NSError *)error;
+- (void)bicikeljStationsFunctionsWillLoadStationsDetails:(LPBicikeljStationsFunctions *)bicikeljStationsFunctions;
+- (void)bicikeljStationsFunctions:(LPBicikeljStationsFunctions *)bicikeljStationsFunctions didLoadStationsDetails:(NSMutableArray*)stationsList;
+```
+
+```objective-c
+#pragma mark - LPBicikeljStationsFunctions Delegate
+
+- (void)bicikeljStationsFunctionsWillLoadStations:(LPBicikeljStationsFunctions *)bicikeljStationsFunctions
+{
+    NSLog(@"bicikeljStationsFunctionsWillLoadStations");
+}
+
+- (void)bicikeljStationsFunctions:(LPBicikeljStationsFunctions *)bicikeljStationsFunctions didLoadStations:(NSMutableArray *)stationsList
+{
+    NSLog(@"bicikeljStationsFunctions - didLoadStations");
+}
+
+- (void)bicikeljStationsFunctionsWillLoadStationsDetails:(LPBicikeljStationsFunctions *)bicikeljStationsFunctions
+{
+    NSLog(@"bicikeljStationsFunctionsWillLoadStationsDetails");
+}
+
+- (void)bicikeljStationsFunctions:(LPBicikeljStationsFunctions *)bicikeljStationsFunctions didLoadStationsDetails:(NSMutableArray *)stationsList
+{
+    NSLog(@"bicikeljStationsFunctions - didLoadStationsDetails");
+}
+
+- (void)bicikeljStationsFunctions:(LPBicikeljStationsFunctions *)bicikeljStationsFunctions errorLoadingStations:(NSError *)error
+{
+    NSLog(@"bicikeljStationsFunctions - errorLoadingStations: %@", error);
+}
+```
+
 ##License
 
 This code is distributed under the terms and conditions of the [MIT license](https://github.com/luka1995/LPBicikeljStationsFunctions/blob/master/LICENSE).
