@@ -21,7 +21,7 @@ If you are using LPBicikeljStationsFunctions in your non-arc project, you will n
 
 To set a compiler flag in Xcode, go to your active target and select the "Build Phases" tab. Now select all LPBicikeljStationsFunctions source files, press Enter, insert `-fobjc-arc` and then "Done" to disable ARC for LPBicikeljStationsFunctions.
 
-#Uses Frameworks - Libraries:
+#Uses Frameworks - Libraries
 
 * UIKit.framework
 * Foundation.framework
@@ -31,7 +31,7 @@ LPBicikeljStationsFunctions uses AFNetworking library for networking.
 https://github.com/AFNetworking/AFNetworking
 
 
-####Delegate methods
+#Delegate methods
 
 ```objective-c
 - (void)bicikeljStationsFunctionsWillLoadStations:(LPBicikeljStationsFunctions *)bicikeljStationsFunctions;
